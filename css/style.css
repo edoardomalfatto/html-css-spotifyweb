@@ -4,33 +4,90 @@
   box-sizing: border-box;
 }
 
+/* utilities */
+.xs_padding_top {
+  padding-top: 10px;
+}
+.xs_padding_bottom {
+  padding-bottom: 10px;
+}
+.icon_padding {
+  padding-right: 5px;
+}
+
+
 .wrapper {
   height: 100vh;
   width: 100%;
   background-color: black;
 }
 
-main div.nav_top {
+/* inizio nav */
+
+main div.nav_top,
+main div.xs_nav_top {
   display: flex;
   flex-direction: column;
   height:calc(100% - 80px);
   overflow-y: hidden;
-  background-color: green;
-}
-.nav_bottom {
-  height: 80px;
-  background-color: orange;
-  margin-bottom: 90px;
 }
 
-.main_nav {
+.main_nav,
+.xs_nav {
   position: fixed;
   top:0;
   left: 0;
   width: 230px;
   height: calc(100% - 90px);
   min-height: 300px;
-  background-color: blue;
+  background-color: black;
+  z-index: 1;
+  color: white;
+  padding:0 10px;
+}
+
+
+/* nav top */
+.nav_logo {
+  height: 90px;
+  line-height: 90px;
+  padding: 10px;
+}
+.nav_logo img {
+  height: 80%;
+}
+
+/* nav menu */
+.nav_menu ul {
+  list-style: none;
+}
+.nav_menu ul li ,
+.nav_playlist ul li {
+  padding:5px 0;
+}
+.nav_menu ul li a {
+  text-decoration: none;
+  color: white;
+}
+.nav_menu ul li img {
+  height: 20px;
+  padding-right:5px;
+}
+
+/* nav playlist */
+.nav_playlist h3 {
+  text-transform: uppercase;
+}
+
+.playlist_header a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+.playlist_header i {
+  font-size: 2.5em;
+  padding-right:5px;
 }
 
 .nav_playlist {
@@ -42,6 +99,65 @@ main div.nav_top {
   overflow-y: auto;
 }
 
+/* nav bottom */
+.nav_bottom_up a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.nav_bottom_up img {
+  height: 20px;
+}
+
+.nav_bottom_user {
+  display: flex;
+}
+.nav_bottom_up ,
+.nav_bottom_user {
+  padding: 8px;
+  padding-left: 0;
+}
+.nav_bottom_user img {
+  height: 30px;
+  background-color: grey;
+  border-radius: 50%;
+}
+.nav_bottom_user h2 {
+  padding-left: 10px;
+}
+
+.nav_bottom,
+.xs_nav_bottom {
+  /* height: 80px;
+  background-color: orange; */
+  margin-bottom: 90px;
+}
+
+/* nav xs */
+.xs_nav_top ul li {
+  padding-bottom:10px;
+}
+.xs_nav_top ul #logo_small{
+  padding-top: 3px;
+}
+
+.xs_nav_bottom  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.xs_nav {
+  display: none;
+}
+.xs_nav_bottom img#profile {
+  height: 30px;
+  background-color: grey;
+  border-radius: 50%;
+}
+
+
 .main_content {
   padding-left: 230px;
   width: 100%;
@@ -49,11 +165,111 @@ main div.nav_top {
   background-color: yellow;
 }
 
+.main_content .content_toplayer {
+  position: absolute;
+  top: 0;
+  left:0;
+  height: 90px;
+  width: 100%;
+  background-color: red;
+  padding-left: 230px;
+}
+
+/* Footer */
+
 footer {
   position: fixed;
   bottom: 0;
   left:0;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   height: 90px;
   background-color: red;
+  z-index: 2;
+}
+
+.footer_right,
+.footer_left {
+  width: 230px;
+  height: 100%;
+  background-color: yellow;
+}
+.footer_center{
+  width:400px;
+  height: 100%;
+  background-color: blue;
+}
+
+/* footer left */
+.footer_left {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.song_img img {
+  width: 40px;
+}
+
+/* footer center */
+.footer_center .center_up,
+.footer_center .center_bottom {
+  height: 45px;
+}
+.center_up {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.fa-play-circle {
+  font-size: 1.6em;
+}
+
+.center_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.big_volumebar {
+  width: 80%;
+  height: 3px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+
+/* footer right */
+.footer_right {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.little_volumebar {
+  width: 130px;
+  height: 3px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+
+
+/* media query */
+
+/* Dimensione xs */
+@media screen and (max-width:768px) {
+ .main_nav {
+   display: none;
+ }
+ .xs_nav {
+   display: block;
+   width: 50px;
+ }
+ .main_content {
+   padding-left: 50px;
+ }
 }
