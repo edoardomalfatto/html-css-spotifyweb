@@ -14,6 +14,9 @@
 .icon_padding {
   padding-right: 5px;
 }
+.xs_margin {
+  margin-left: 10px;
+}
 
 
 .wrapper {
@@ -157,22 +160,110 @@ main div.xs_nav_top {
   border-radius: 50%;
 }
 
+/* main content */
 
 .main_content {
   padding-left: 230px;
   width: 100%;
   overflow-x: hidden;
   background-color: yellow;
+  margin-top: 90px;
 }
 
 .main_content .content_toplayer {
+
   position: absolute;
   top: 0;
   left:0;
   height: 90px;
   width: 100%;
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
   background-color: red;
   padding-left: 230px;
+}
+
+.content_toplayer a {
+  border: 1px solid white;
+  border-radius: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  padding:20px;
+}
+
+/* content nav */
+
+.content_nav_wrap {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.content_nav nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.content_nav nav ul li {
+ padding:0 10px;
+}
+.content_nav nav ul li a {
+ color: lightgray;
+ text-decoration: none;
+ text-transform: uppercase;
+}
+
+/* recently_played */
+.rp_row {
+  display: flex;
+  justify-content: start;
+  flex-wrap:wrap;
+}
+.rp_song {
+  width: 200px;
+  margin: 10px;
+}
+.rp_layover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.76);
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left:0;
+  opacity: 0;
+}
+.rp_layover a i {
+ font-size: 3em;
+ color: white;
+}
+.rp_layover:hover {
+  opacity: 1;
+}
+
+
+.rp_img {
+  position: relative;
+}
+.rp_img img {
+  width: 100%;
+}
+.rp_description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* popolar artist */
+.popolar_artist .rp_row .rp_song .rp_img img {
+  border-radius: 50%;
+}
+.circle.rp_layover  {
+  border-radius: 50%;
 }
 
 /* Footer */
@@ -246,7 +337,7 @@ footer {
 .footer_right {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .little_volumebar {
@@ -261,7 +352,7 @@ footer {
 /* media query */
 
 /* Dimensione xs */
-@media screen and (max-width:768px) {
+@media screen and (max-width:767px) {
  .main_nav {
    display: none;
  }
@@ -272,4 +363,13 @@ footer {
  .main_content {
    padding-left: 50px;
  }
+ .content_nav ul li {
+   flex-grow: 4;
+ }
+
+}
+
+/* Dimensione xs */
+@media screen and (min-width:768px) and (max-width:990px) {
+
 }
