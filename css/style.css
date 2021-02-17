@@ -216,27 +216,43 @@ main div.xs_nav_top {
   color: white;
   padding:20px;
 }
+.content_toplayer a:hover {
+  padding:30px;
+}
 
 /* content nav */
 
 .content_nav_wrap {
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
+  text-align: center;
 }
 
 .content_nav nav ul {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   list-style: none;
+  line-height: 30px;
 }
 .content_nav nav ul li {
+ display: inline-block;
  padding:0 10px;
 }
 .content_nav nav ul li a {
+  position: relative;
  color: lightgray;
  text-decoration: none;
  text-transform: uppercase;
+}
+.content_nav nav ul li a:hover {
+ color: white;
+}
+.content_nav nav ul li a.active:after {
+  position: absolute;
+  content: "";
+  bottom: -3px;
+  left: 50%;
+  width: 30px;
+  height: 3px;
+  transform: translateX(-50%);
+  background-color: limegreen;
 }
 
 /* recently_played */
@@ -246,16 +262,16 @@ main div.xs_nav_top {
   flex-wrap:wrap;
 }
 .rp_song {
-  width: 200px;
+  width: calc(100% / 6 - 20px);
   margin: 10px;
 }
 .rp_layover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.76);
+  background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
-  height: 200px;
+  height: 100%;
   position: absolute;
   top: 0;
   left:0;
@@ -265,7 +281,7 @@ main div.xs_nav_top {
  font-size: 3em;
  color: white;
 }
-.rp_layover:hover {
+.rp_song:hover .rp_layover {
   opacity: 1;
 }
 
@@ -443,12 +459,13 @@ footer {
   background-color: grey;
 }
 
-
-
 /* media query */
 
 /* Dimensione xs */
 @media screen and (max-width:767px) {
+  .rp_song {
+    width: calc(100% / 2 - 20px);
+  }
  .main_nav {
    display: none;
  }
@@ -465,7 +482,25 @@ footer {
 
 }
 
-/* Dimensione xs */
-@media screen and (min-width:768px) and (max-width:990px) {
+/* Dimensione sm */
+@media screen and (min-width:768px) and (max-width:991px) {
+  .rp_song {
+    width: calc(100% / 2 - 20px);
+  }
 
+}
+
+/* Dimensione md */
+@media screen and (min-width:992px) and (max-width:1200px) {
+  .rp_song {
+    width: calc(100% / 4 - 20px);
+  }
+
+}
+
+/* Dimensione lg */
+@media screen and (min-width:1200px) {
+  .rp_song {
+    width: calc(100% / 6 - 20px);
+  }
 }
